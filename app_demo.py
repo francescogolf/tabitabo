@@ -120,8 +120,8 @@ def main():
     # Initialize session state
     if 'decision_table' not in st.session_state:
         st.session_state.decision_table = None
-    if 'tabo_table' not in st.session_state:
-        st.session_state.tabo_table = None
+    if 'selected_tabo_table' not in st.session_state:
+        st.session_state.selected_tabo_table = None
     
     # Sidebar for table selection
     st.sidebar.header("📋 Selezione Tabelle")
@@ -160,7 +160,7 @@ def main():
                 if not tabi_metadata.empty and not tabo_metadata.empty:
                     # Create decision table
                     st.session_state.decision_table = create_decision_table(tabi_metadata, tabo_metadata)
-                    st.session_state.tabo_table = tabo_table
+                    st.session_state.selected_tabo_table = tabo_table
                     st.success("✅ Analisi completata!")
                     st.rerun()
                 else:
@@ -248,7 +248,7 @@ def main():
                     st.warning("⚠️ Nessuna colonna selezionata per l'aggiornamento!")
                 else:
                     st.success(f"""
-                    ✅ **Demo Mode**: In produzione, verrebbero aggiornate {len(updates)} colonne nella tabella '{st.session_state.tabo_table}'
+                    ✅ **Demo Mode**: In produzione, verrebbero aggiornate {len(updates)} colonne nella tabella '{st.session_state.selected_tabo_table}'
                     
                     **Colonne da aggiornare:**
                     """)
