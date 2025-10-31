@@ -180,7 +180,8 @@ def main():
         layout="wide"
     )
     
-    st.title("🏷️ TABITABO - Table Metadata Manager")
+    st.image("tabitabo.png", width=200)
+    st.title("Table Metadata Manager")
     st.markdown("""
     Applicazione per semplificare la metadatazione dei campi delle tabelle di database,
     automatizzando la copia e l'adattamento delle descrizioni tra tabelle con struttura simile.
